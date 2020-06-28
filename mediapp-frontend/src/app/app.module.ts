@@ -32,6 +32,10 @@ import { Not404Component } from './pages/not404/not404.component';
 import { RecuperarComponent } from './pages/login/recuperar/recuperar.component';
 import { TokenComponent } from './pages/login/recuperar/token/token.component';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { SignosComponent } from './pages/signos/signos.component';
+import { SignosEdicionComponent } from './pages/signos/signos-edicion/signos-edicion.component';
+import { SignosDialogoComponent } from './pages/signos/signos-dialogo/signos-dialogo.component';
 
 export function tokenGetter() {
   return sessionStorage.getItem(environment.TOKEN_NAME);
@@ -58,7 +62,11 @@ export function tokenGetter() {
     Not403Component,
     Not404Component,
     RecuperarComponent,
-    TokenComponent    
+    TokenComponent,
+    PerfilComponent,
+    SignosComponent,
+    SignosEdicionComponent,
+    SignosDialogoComponent
   ],
   //entryComponents: [MedicoDialogoComponent], No es obligatorio desde Angular Material v9
   imports: [

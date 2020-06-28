@@ -12,23 +12,23 @@ import com.mitocode.repo.IUsuarioRepo;
 
 @SpringBootTest
 class MediappBackendApplicationTests {
-	
+
 	@Autowired
 	private BCryptPasswordEncoder bcrypt;
-	
+
 	@Autowired
 	private IUsuarioRepo repo;
-	
+
 	@Test
 	void crearUsuario() {
 		Usuario us = new Usuario();
-		us.setIdUsuario(2);
-		us.setUsername("mitocode21@gmail.com");
-		us.setPassword(bcrypt.encode("123"));
+		us.setIdUsuario(1);
+		us.setUsername("admin@correo.com");
+		us.setPassword(bcrypt.encode("123123"));
 		us.setEnabled(true);
-		
+
 		Usuario retorno = repo.save(us);
-		
+
 		assertTrue(retorno.getPassword().equalsIgnoreCase(us.getPassword()));
 	}
 

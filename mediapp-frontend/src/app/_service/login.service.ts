@@ -39,7 +39,7 @@ export class LoginService {
     }else{
       sessionStorage.clear();
       this.router.navigate(['login']);
-    }    
+    }
   }
 
   enviarCorreo(correo: string){
@@ -48,7 +48,7 @@ export class LoginService {
     });
   }
 
-  verificarTokenReset(token: string) {  
+  verificarTokenReset(token: string) {
     return this.http.get<number>(`${environment.HOST}/login/restablecer/verificar/${token}`);
   }
 

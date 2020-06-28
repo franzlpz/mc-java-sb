@@ -1,0 +1,110 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+  <div fxFlex="20%">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Ingrese Signos Vitales</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <form
+        class="example-container"
+        [formGroup]="frm"
+        #frmSignos="ngForm"
+        (ngSubmit)="registrar()"
+      >
+        <div [hidden]="true">
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="ID" required formControlName="id" />
+          </mat-form-field>
+        </div>
+
+        <mat-form-field>
+          <input
+            type="text"
+            placeholder="Paciente"
+            matInput
+            [matAutocomplete]="autoPaciente"
+            [formControl]="myControlPaciente"
+            formControlName="paciente"
+          />
+        </mat-form-field>
+        <mat-autocomplete
+          #autoPaciente="matAutocomplete"
+          [displayWith]="mostrarPaciente"
+          (optionSelected)="seleccionarPaciente($event)"
+        >
+          <mat-option *ngFor="let p of pacientesFiltrados | async" [value]="p">
+            {{ p.nombres }} {{ p.apellidos }}
+          </mat-option>
+        </mat-autocomplete>
+
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            placeholder="Escoge una fecha"
+            [max]="maxFecha"
+            formControlName="fecha"
+          />
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Temperatura"
+            formControlName="temperatura"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="Pulso" formControlName="pulso" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <input
+            matInput
+            placeholder="Rirmo Respiratorio"
+            formControlName="ritmo"
+          />
+        </mat-form-field>
+
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="frmSignos.invalid"
+        >
+          <mat-icon>done</mat-icon>
+          <span>Aceptar</span>
+        </button>
+        <button
+          mat-raised-button
+          color="accent"
+          routerLink="/signos"
+          type="button"
+        >
+          <mat-icon>close</mat-icon>
+          <span>Cancelar</span>
+        </button>
+      </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div fxFlex="20%">
+    <mat-card>
+      <mat-card-content>
+        <button
+          mat-raised-button
+          color="primary" (click)="abrirDialogo()"
+        >
+          <mat-icon>done</mat-icon>
+          <span>Nuevo Paciente</span>
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+

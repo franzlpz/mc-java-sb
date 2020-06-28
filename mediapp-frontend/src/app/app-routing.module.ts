@@ -18,6 +18,9 @@ import { MedicoComponent } from './pages/medico/medico.component';
 import { PacienteComponent } from './pages/paciente/paciente.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { PerfilComponent } from './pages/perfil/perfil.component';
+import { SignosComponent } from './pages/signos/signos.component';
+import { SignosEdicionComponent } from './pages/signos/signos-edicion/signos-edicion.component';
 
 
 const routes: Routes = [
@@ -39,12 +42,19 @@ const routes: Routes = [
       { path: 'edicion/:id', component: ExamenEdicionComponent }
     ], canActivate: [GuardService]
   },
+  {
+    path: 'signos', component: SignosComponent, children: [
+      { path: 'nuevo', component: SignosEdicionComponent },
+      { path: 'edicion/:id', component: SignosEdicionComponent },
+    ], canActivate: [GuardService]
+  },
   { path: 'medico', component: MedicoComponent, canActivate: [GuardService] },
   { path: 'consulta', component: ConsultaComponent, canActivate: [GuardService] },
   { path: 'consulta-especial', component: ConsultaEspecialComponent, canActivate: [GuardService] },
   { path: 'consulta-wizard', component: WizardComponent, canActivate: [GuardService] },
   { path: 'buscar', component: BuscarComponent, canActivate: [GuardService] },
   { path: 'reporte', component: ReporteComponent, canActivate: [GuardService] },
+  { path: 'perfil', component: PerfilComponent},
   { path: 'login', component: LoginComponent },
   {
     path: 'recuperar', component: RecuperarComponent, children: [

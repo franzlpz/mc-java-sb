@@ -1,0 +1,71 @@
+<div class="container pt-5 col-md-5">
+  <div class="row justify-content-md-center mb-3">
+    <mat-card class="mat-card profile-sidebar mb-1 pb-0 center">
+      <div
+        fxlayoutalign="center center"
+        class="profile-actions mb-1"
+        style="
+          place-content: center;
+          align-items: center;
+          flex-direction: row;
+          box-sizing: border-box;
+          display: flex;
+        "
+      >
+        <img src="assets/img/new_logo.png" alt="" />
+      </div>
+      <br />
+      <div
+        fxlayoutalign="center center"
+        class="profile-actions mb-1"
+        style="
+          place-content: center;
+          align-items: center;
+          flex-direction: row;
+          box-sizing: border-box;
+          display: flex;
+        "
+      >
+        <div class="profile-title text-center mb-1">
+          <div class="main-title">Usuario: </div>
+          <div class="subtitle">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  {{ usuario.nombre }}</div>
+          <div class="main-title " >Roles: </div>
+          <div class="subtitle" *ngFor="let rol of usuario.roles" class="text-muted">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ rol }}
+          </div>
+        </div>
+      </div>
+      <br />
+      <div
+        fxlayoutalign="center center"
+        class="profile-actions mb-1"
+        style="
+          place-content: center;
+          align-items: center;
+          flex-direction: row;
+          box-sizing: border-box;
+          display: flex;
+        "
+      >
+        <span
+          fxflex="8px"
+          style="
+            flex: 1 1 8px;
+            box-sizing: border-box;
+            max-width: 8px;
+            min-width: 8px;
+          "
+        ></span>
+        <button (click)="irAlHome()"
+          mat-raised-button=""
+          color="accent"
+          class="mat-raised-button mat-button-base mat-accent"
+        >
+          <span class="mat-button-wrapper">Salir</span>
+          <div matripple="" class="mat-ripple mat-button-ripple"></div>
+          <div class="mat-button-focus-overlay"></div>
+        </button>
+      </div>
+    </mat-card>
+  </div>
+</div>

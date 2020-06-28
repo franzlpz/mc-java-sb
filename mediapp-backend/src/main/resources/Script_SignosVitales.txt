@@ -1,0 +1,2 @@
+INSERT INTO menu(id_menu, nombre, icono, url) VALUES (14, 'Signos Vitales', 'favorite', '/signos');
+INSERT INTO menu_rol (id_menu, id_rol) VALUES (14, 1);
